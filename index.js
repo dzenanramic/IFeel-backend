@@ -6,11 +6,10 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 
 // Enable CORS for all routes
-app.use(cors());
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
