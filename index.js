@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const { createClient } = require("@supabase/supabase-js");
 const fetch = require("node-fetch");
-const { sendPushNotification } = require("./sendNotifications");
+// const { sendPushNotification } = require("./sendNotifications");
 const cors = require("cors");
 
 // Enable CORS for all routes
@@ -72,17 +72,17 @@ app.get("/my-emotions/:user_id", async (req, res) => {
   res.json(data);
 });
 
-app.post("/send-emotion", async (req, res) => {
-  const { token, emotion } = req.body;
+// app.post("/send-emotion", async (req, res) => {
+//   const { token, emotion } = req.body;
 
-  try {
-    await sendPushNotification(token, emotion);
-    res.send("Notification sent!");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Error sending notification");
-  }
-});
+//   try {
+//     await sendPushNotification(token, emotion);
+//     res.send("Notification sent!");
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Error sending notification");
+//   }
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
